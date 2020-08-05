@@ -1,0 +1,17 @@
+
+<!-- We dont wanna have the loop there because we want to manage the serverElements array in the app component -->
+<!-- Hence this is a single server, not a list of them -->
+        <div class="panel panel-default">
+            <!-- <div class="panel-heading">{{ element.name }}</div> -->
+            <div class="panel-heading" #heading>{{ name }}</div>
+            <div class="panel-body">
+                <!-- <p>
+                    <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
+                    <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
+                </p> -->
+                <!-- By adding <ng-content> we map what is inside in the parent component, between the opening and closing tags of the same component, this is a directive -->
+                <!-- Hence this allow us to project what is there into this component -->
+                <ng-content></ng-content>
+            </div>
+        </div>
+

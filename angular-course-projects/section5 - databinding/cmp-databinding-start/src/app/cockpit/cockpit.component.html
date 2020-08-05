@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-xs-12">
+        <p>Add new Servers or blueprints!</p>
+        <label>Server Name</label>
+        <!-- In this case we do not need two way data binding because we only need to capture the input of the text, hence here is an alternative way to do this is by using hash and capturing the value of the input -->
+        <!-- <input type="text" class="form-control" [(ngModel)]="newServerName"> -->
+        <input type="text" class="form-control" #serverNameInput>
+        <label>Server Content</label>
+        <!-- <input type="text" class="form-control" [(ngModel)]="newServerContent"> -->
+        <input type="text" class="form-control" #serverContentInput>
+        <br>
+        <button class="btn btn-primary" (click)="onAddServer(serverNameInput)">Add Server</button>
+        <button class="btn btn-primary" (click)="onAddBlueprint(serverNameInput)">Add Server Blueprint</button>
+    </div>
+</div>
