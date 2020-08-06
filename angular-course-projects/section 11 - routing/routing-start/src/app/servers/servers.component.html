@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <div class="list-group">
+      <a
+        href="#"
+        class="list-group-item"
+        *ngFor="let server of servers">
+        {{ server.name }}
+      </a>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4">
+    <!-- thE FOLLOWING IS A RELATIVE PATH AN WILL CRASH THE APP BECAUSE IT'S POINTING TO /SERVERS/SERVERS -->
+    <!-- on the other hand /severs is an absolute path so it won't crash the app because it's pointing to /servers -->
+    <!-- <a routerLink="servers">Reload Page</a> -->
+    <a routerLink="/servers">Reload Page</a>
+    <!-- We also  can navigate using the router as a durectory e.g ../servers is the same than /servers, because it goes back one layer and gets into servers again which is the same than /server and already exists in the router definition -->
+    <!-- <a routerLink="../servers">Reload Page</a> -->
+    <app-edit-server></app-edit-server>
+    <hr>
+    <app-server></app-server>
+  </div>
+</div>
+

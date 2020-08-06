@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { AccountStatusServiceService } from '../accountstatus-service.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AccountStatusServiceService } from '../accountstatus-service.service';
   templateUrl: './active-users.component.html',
   styleUrls: ['./active-users.component.css']
 })
-export class ActiveUsersComponent {
+export class ActiveUsersComponent implements OnInit{
   @Input() users: string[];
   //@Output() userSetToInactive = new EventEmitter<number>();
 
@@ -16,6 +16,11 @@ export class ActiveUsersComponent {
           //   console.log("New Status: " + status)
           // );
   }
+  // Is good practice to initialize objects
+  ngOnInit(){
+    this.users = this.accountStatusService.activeUsers;
+  }
+
 
   onSetToInactive(id: number) {
     this.accountStatusService.setToInactive(id);

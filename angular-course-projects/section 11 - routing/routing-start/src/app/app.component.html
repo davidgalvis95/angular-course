@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <!-- This way could be a way to automatically call the router so that ir directs to the desired path we want, however it will send a request to the serve, hence will reload the server, so this is not the desired behavior -->
+        <!-- <li role="presentation" class="active"><a href="/">Home</a></li>
+        <li role="presentation"><a href="/servers">Servers</a></li>
+        <li role="presentation"><a href="/users">Users</a></li> -->
+          <!-- With router link we do the same, we load the component attached to the router, but without reloading the page, so it just catches the click and looks into the component what could be done there, instead of sending a new request, also its faster -->
+        <!-- <li role="presentation" class="active" ><a routerLink="">Home</a></li> -->
+        <!-- the routerLinkActive is a directive that marks the element as active if it's selected, however it takes into account that the routerLink appears in some part of the link, this is why we need to use the routerLinkActiveOptions in a data binding way so that it takes the exact path, the entire one and not duplicates in this case the home bacuse all the others have the "/" in their paths  -->
+        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions] = "{ exact:true }"><a routerLink="">Home</a></li>
+        <li role="presentation" routerLinkActive="active"><a routerLink="/servers">Servers</a></li>
+        <!-- The following way could be convenient if we want to load an araay of paths -->
+        <!-- The following is an absolute path -->
+        <li role="presentation" routerLinkActive="active"><a [routerLink]="['/users']">Users</a></li>
+        <!-- <li role="presentation"><a [routerLink]="/users'">Users</a></li> -->
+      </ul>
+    </div>
+  </div>
+  <!-- In order to apropetely use the router  we need to just only leave one and use the router-outlet which looks like a component but it really is a directive-->
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <app-users></app-users>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <app-servers></app-servers>
+    </div>
+  </div> -->
+</div>
