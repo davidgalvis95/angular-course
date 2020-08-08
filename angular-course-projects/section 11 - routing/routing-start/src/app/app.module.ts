@@ -15,6 +15,8 @@ import { ServersService } from './servers/servers.service';
 //import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { AuthGuardService } from './auth-guard.service';
+import { AuthService } from './auth.service';
 
 //Generally we declare the way we want to use our routers by using a constant which attaches a route to a  component, but this is not enough, we must declare how can we use them by registering them in our app
 // const appRoutes: Routes = [
@@ -65,7 +67,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     //RouterModule.forRoot(appRoutes)
 
   ],
-  providers: [ServersService],
+  providers: [ServersService,AuthGuardService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

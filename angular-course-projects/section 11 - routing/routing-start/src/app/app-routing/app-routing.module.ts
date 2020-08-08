@@ -9,6 +9,7 @@ import { ServersComponent } from '../servers/servers.component';
 import { ServerComponent } from '../servers/server/server.component';
 import { EditServerComponent } from '../servers/edit-server/edit-server.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { AuthGuardService } from '../auth-guard.service';
 
 //Generally we declare the way we want to use our routers by using a constant which attaches a route to a  component, but this is not enough, we must declare how can we use them by registering them in our app
 const appRoutes: Routes = [
@@ -25,7 +26,7 @@ const appRoutes: Routes = [
   { path: 'users', component : UsersComponent, children: [
     { path: ':id/:name', component : UserComponent},
   ]},
-  { path: 'servers', component : ServersComponent, children: [
+  { path: 'servers', canActivate: [AuthGuardService],component : ServersComponent, children: [
     { path: ':id', component : ServerComponent},
     //This is a new link
     { path: ':id/edit', component : EditServerComponent},
