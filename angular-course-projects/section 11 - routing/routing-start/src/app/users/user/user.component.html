@@ -1,2 +1,4 @@
-<p>User with ID _ID_ loaded.</p>
-<p>User name is _NAME_</p>
+<p>User with ID {{ user.id }} loaded.</p>
+<p>User name {{ user.name }}</p>
+<!-- lets say that we want to create a new link that point to a new user using the routerLink, as we will see in the component it wont work as expected -->
+<a [routerLink]="['/users',10,'Ánna']">Load uaser Anna 10</a>
